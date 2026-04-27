@@ -1,0 +1,286 @@
+.star-field {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+.stars-1 {
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 
+    10vw 20vh white, 25vw 45vh white, 35vw 15vh white, 50vw 30vh white, 65vw 10vh white, 80vw 40vh white, 90vw 25vh white,
+    15vw 60vh white, 40vw 75vh white, 60vw 65vh white, 75vw 85vh white, 95vw 55vh white,
+    5vw 80vh white, 20vw 90vh white, 45vw 5vh white, 70vw 95vh white, 85vw 70vh white;
+  animation: stars-twinkle 4s infinite ease-in-out;
+}
+
+.stars-2 {
+  width: 1px;
+  height: 1px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 
+    12vw 22vh white, 27vw 47vh white, 37vw 17vh white, 52vw 32vh white, 67vw 12vh white, 82vw 42vh white, 92vw 27vh white,
+    17vw 62vh white, 42vw 77vh white, 62vw 67vh white, 77vw 87vh white, 97vw 57vh white,
+    7vw 82vh white, 22vw 92vh white, 47vw 7vh white, 72vw 97vh white, 87vw 72vh white,
+    30vw 30vh white, 40vw 40vh white, 50vw 50vh white, 60vw 60vh white;
+  opacity: 0.5;
+}
+
+@keyframes stars-twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.deep-blue-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 5, 20, 0.8) 0%, rgba(0, 0, 0, 0.9) 100%);
+  z-index: 0;
+}
+
+/* ── Bubbles ── */
+.bubbles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.35), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(2px);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* 5 sporadic path variants */
+@keyframes bubble-a {
+  0%   { transform: translateY(0)      translateX(0);    opacity: 0; }
+  8%   { opacity: 0.75; }
+  30%  { transform: translateY(-28vh)  translateX(22px); opacity: 0.6; }
+  55%  { transform: translateY(-52vh)  translateX(-18px); opacity: 0.4; }
+  80%  { transform: translateY(-78vh)  translateX(30px); opacity: 0.15; }
+  100% { transform: translateY(-105vh) translateX(-8px); opacity: 0; }
+}
+
+@keyframes bubble-b {
+  0%   { transform: translateY(0)      translateX(0);    opacity: 0; }
+  5%   { opacity: 0.8; }
+  25%  { transform: translateY(-22vh)  translateX(-30px); opacity: 0.65; }
+  50%  { transform: translateY(-48vh)  translateX(10px);  opacity: 0.45; }
+  75%  { transform: translateY(-74vh)  translateX(-24px); opacity: 0.2; }
+  100% { transform: translateY(-105vh) translateX(14px);  opacity: 0; }
+}
+
+@keyframes bubble-c {
+  0%   { transform: translateY(0)      translateX(0);     opacity: 0; }
+  10%  { opacity: 0.7; }
+  20%  { transform: translateY(-18vh)  translateX(35px);  opacity: 0.6; }
+  40%  { transform: translateY(-38vh)  translateX(-12px); opacity: 0.5; }
+  60%  { transform: translateY(-58vh)  translateX(28px);  opacity: 0.3; }
+  85%  { transform: translateY(-85vh)  translateX(-20px); opacity: 0.1; }
+  100% { transform: translateY(-105vh) translateX(5px);   opacity: 0; }
+}
+
+@keyframes bubble-d {
+  0%   { transform: translateY(0)      translateX(0);     opacity: 0; }
+  7%   { opacity: 0.85; }
+  15%  { transform: translateY(-14vh)  translateX(-25px); opacity: 0.7; }
+  30%  { transform: translateY(-30vh)  translateX(20px);  opacity: 0.55; }
+  50%  { transform: translateY(-50vh)  translateX(-35px); opacity: 0.4; }
+  70%  { transform: translateY(-70vh)  translateX(15px);  opacity: 0.2; }
+  100% { transform: translateY(-105vh) translateX(-10px); opacity: 0; }
+}
+
+@keyframes bubble-e {
+  0%   { transform: translateY(0)      translateX(0);    opacity: 0; }
+  6%   { opacity: 0.65; }
+  35%  { transform: translateY(-33vh)  translateX(8px);  opacity: 0.5; }
+  65%  { transform: translateY(-65vh)  translateX(-16px); opacity: 0.3; }
+  90%  { transform: translateY(-92vh)  translateX(22px); opacity: 0.08; }
+  100% { transform: translateY(-105vh) translateX(0);    opacity: 0; }
+}
+
+/* ── Partner Button Glint ── */
+@keyframes glint {
+  0% { left: -120%; }
+  100% { left: 160%; }
+}
+
+.partner-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.partner-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.13) 55%, rgba(255,255,255,0.07) 60%, transparent 70%);
+  transform: skewX(-15deg);
+  left: -120%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.partner-btn:hover::before {
+  animation: glint 0.55s ease;
+}
+
+/* ── Continuous Marquee Animation ── */
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: scrollMarquee 25s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+/* ── Glitch Flicker ── */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-name);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.glitch-text::before {
+  color: #ff3d6b;
+  clip-path: polygon(0 20%, 100% 20%, 100% 45%, 0 45%);
+  animation: glitch-anim-1 5s infinite linear;
+}
+
+.glitch-text::after {
+  color: #c8a0ff;
+  clip-path: polygon(0 60%, 100% 60%, 100% 78%, 0 78%);
+  animation: glitch-anim-2 5s infinite linear;
+  animation-delay: 2.5s;
+}
+
+@keyframes glitch-anim-1 {
+  0%, 90% { opacity: 0; transform: translateX(0); }
+  92% { opacity: 0.8; transform: translateX(-3px); }
+  94% { opacity: 0.8; transform: translateX(2px); }
+  96% { opacity: 0; transform: translateX(0); }
+  100% { opacity: 0; }
+}
+
+@keyframes glitch-anim-2 {
+  0%, 90% { opacity: 0; transform: translateX(0); }
+  92% { opacity: 0.7; transform: translateX(4px); }
+  94% { opacity: 0.7; transform: translateX(-2px); }
+  96% { opacity: 0; transform: translateX(0); }
+  100% { opacity: 0; }
+}
+
+/* ── CRT Scanlines Overlay ── */
+.btn-scanlines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 1px,
+    rgba(0, 0, 0, 0.15) 1px,
+    rgba(0, 0, 0, 0.15) 2px
+  );
+  pointer-events: none;
+  z-index: 10;
+  border-radius: inherit;
+  opacity: 0.7;
+}
+
+/* ── Contact Section Grid Overlay ── */
+.contact-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(rgba(255,255,255,0.015) 0 1px, transparent 1px 80px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0 1px, transparent 1px 80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Social Link Underline Sweep ── */
+.social-link {
+  position: relative;
+  display: inline-block;
+  color: #7a7880;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  transition: color 0.3s ease;
+}
+.social-link:hover {
+  color: #f0ede8;
+}
+.social-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: #facc15;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.social-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ── Contact Form Input ── */
+.contact-input {
+  width: 100%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: #f0ede8;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.contact-input:focus {
+  border-color: rgba(250,204,21,0.4);
+  box-shadow: 0 0 0 3px rgba(250,204,21,0.08);
+}
